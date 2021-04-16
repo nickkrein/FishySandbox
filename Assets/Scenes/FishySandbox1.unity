@@ -239,7 +239,7 @@ GameObject:
   - component: {fileID: 251776404}
   - component: {fileID: 251776405}
   m_Layer: 0
-  m_Name: FishingLineAdv
+  m_Name: LineAdv
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -308,7 +308,7 @@ GameObject:
   - component: {fileID: 480285730}
   - component: {fileID: 480285734}
   m_Layer: 0
-  m_Name: Fishing Rod
+  m_Name: Rod
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -384,13 +384,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 480285724}
   m_LocalRotation: {x: -0, y: 0.2834714, z: -0, w: 0.9589807}
-  m_LocalPosition: {x: -3.022, y: 1.086, z: 1.162}
+  m_LocalPosition: {x: 0.31599998, y: -0.006000042, z: 0.48899996}
   m_LocalScale: {x: 0.02, y: 0.02, z: 1.8}
   m_Children:
   - {fileID: 515439490}
   - {fileID: 251776403}
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_Father: {fileID: 1196618320}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 32.935, z: 0}
 --- !u!114 &480285729
 MonoBehaviour:
@@ -1344,6 +1344,38 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1196618319
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1196618320}
+  m_Layer: 0
+  m_Name: FishingRod
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1196618320
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1196618319}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.819, y: 1.092, z: 0.673}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 480285728}
+  - {fileID: 1443094646}
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1319313542 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 125964, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
@@ -1395,7 +1427,7 @@ GameObject:
   - component: {fileID: 1443094643}
   - component: {fileID: 1443094642}
   m_Layer: 0
-  m_Name: FishingLineBasic
+  m_Name: LineBasic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1486,13 +1518,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1443094641}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.534, y: 0.8411, z: 1.915}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.80400014, y: -0.25090003, z: 1.242}
   m_LocalScale: {x: 0.01, y: 0.5, z: 0.01}
   m_Children:
   - {fileID: 1088655018}
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_Father: {fileID: 1196618320}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1672155223
 GameObject:
@@ -1522,7 +1554,7 @@ Transform:
   m_GameObject: {fileID: 1672155223}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 7.5, y: 5.4, z: -11.5}
-  m_LocalScale: {x: 2, y: 0.1, z: 2}
+  m_LocalScale: {x: 3.24, y: 0.1, z: 2}
   m_Children: []
   m_Father: {fileID: 150201057}
   m_RootOrder: 1
