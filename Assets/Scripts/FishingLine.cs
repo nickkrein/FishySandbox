@@ -7,8 +7,8 @@ public class FishingLine : MonoBehaviour
 
     private LineRenderer lineRenderer;
     private List<LineSegment> lineSegments = new List<LineSegment>();
-    private float lineSegLen = 0.25f;
-    private int segmentLength = 3;
+    public float lineSegLen = 0.25f;
+    public int numSegments = 3;
     private float lineWidth = 0.01f;
     public GameObject lure;
 
@@ -20,7 +20,7 @@ public class FishingLine : MonoBehaviour
         // Vector3 pos = this.transform.parent.position + offset; //This is the position
         Vector3 lineStartPoint = this.transform.position;
 
-        for (int i = 0; i < segmentLength; i++)
+        for (int i = 0; i < numSegments; i++)
         {
             this.lineSegments.Add(new LineSegment(lineStartPoint));
             lineStartPoint.y -= lineSegLen;
@@ -43,7 +43,7 @@ public class FishingLine : MonoBehaviour
         // SIMULATION
         Vector3 forceGravity = new Vector3(0f, -1.5f, 0f);
 
-        for (int i = 1; i < this.segmentLength; i++)
+        for (int i = 1; i < this.numSegments; i++)
         {
             LineSegment firstSegment = this.lineSegments[i];
             Vector3 velocity = firstSegment.posNow - firstSegment.posOld;
@@ -69,7 +69,7 @@ public class FishingLine : MonoBehaviour
         firstSegment.posNow = this.transform.position;
         this.lineSegments[0] = firstSegment;
 
-        for (int i = 0; i < this.segmentLength - 1; i++)
+        for (int i = 0; i < this.numSegments - 1; i++)
         {
             LineSegment firstSeg = this.lineSegments[i];
             LineSegment secondSeg = this.lineSegments[i + 1];
@@ -108,13 +108,12 @@ public class FishingLine : MonoBehaviour
         lineRenderer.startWidth = lineWidth;
         lineRenderer.endWidth = lineWidth;
 
-        Vector3[] linePositions = new Vector3[this.segmentLength];
-        for (int i = 0; i < this.segmentLength; i++)
+        Vector3[] linePositions = new Vector3[this.numSegments];
+        for (int i = 0; i < this.numSegments; i++)
         {
             linePositions[i] = this.lineSegments[i].posNow;
             
-            if (i == this.segmentLength - 1) {
-                Debug.Log(linePositions[i]);
+            if (i == this.numSegments - 1) {
                 lure.transform.position = linePositions[i];
             }
         }
