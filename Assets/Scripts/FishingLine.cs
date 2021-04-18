@@ -8,16 +8,17 @@ public class FishingLine : MonoBehaviour
     private LineRenderer lineRenderer;
     private List<LineSegment> lineSegments = new List<LineSegment>();
     private float lineSegLen = 0.25f;
-    private int segmentLength = 10;
-    private float lineWidth = 0.1f;
+    private int segmentLength = 3;
+    private float lineWidth = 0.01f;
+    public GameObject lure;
 
     // Use this for initialization
     void Start()
     {
         this.lineRenderer = this.GetComponent<LineRenderer>();
-        Vector3 offset = this.transform.parent.up * (this.transform.parent.localScale.y / 2f) * -1f;
-        Vector3 pos = this.transform.parent.position + offset; //This is the position
-        Vector3 lineStartPoint = pos;
+        // Vector3 offset = this.transform.parent.up * (this.transform.parent.localScale.y / 2f) * -1f;
+        // Vector3 pos = this.transform.parent.position + offset; //This is the position
+        Vector3 lineStartPoint = this.transform.position;
 
         for (int i = 0; i < segmentLength; i++)
         {
@@ -63,9 +64,9 @@ public class FishingLine : MonoBehaviour
     {
         //Constrant to Mouse
         LineSegment firstSegment = this.lineSegments[0];
-        Vector3 offset = this.transform.parent.up * (this.transform.parent.localScale.y / 2f) * -1f;
-        Vector3 pos = this.transform.parent.position + offset; //This is the position
-        firstSegment.posNow = pos;
+        // Vector3 offset = this.transform.parent.up * (this.transform.parent.localScale.y / 2f) * -1f;
+        // Vector3 pos = this.transform.parent.position + offset; //This is the position
+        firstSegment.posNow = this.transform.position;
         this.lineSegments[0] = firstSegment;
 
         for (int i = 0; i < this.segmentLength - 1; i++)
@@ -111,6 +112,11 @@ public class FishingLine : MonoBehaviour
         for (int i = 0; i < this.segmentLength; i++)
         {
             linePositions[i] = this.lineSegments[i].posNow;
+            
+            if (i == this.segmentLength - 1) {
+                Debug.Log(linePositions[i]);
+                lure.transform.position = linePositions[i];
+            }
         }
 
         lineRenderer.positionCount = linePositions.Length;
