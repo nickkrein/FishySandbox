@@ -4,20 +4,17 @@ using UnityEngine;
 
 public class FishingLine : MonoBehaviour
 {
-
     private LineRenderer lineRenderer;
     private List<LineSegment> lineSegments = new List<LineSegment>();
     public float lineSegLen = 0.25f;
     public int numSegments = 3;
     private float lineWidth = 0.01f;
-    public GameObject lure;
+    public Transform lure;
 
     // Use this for initialization
     void Start()
     {
         this.lineRenderer = this.GetComponent<LineRenderer>();
-        // Vector3 offset = this.transform.parent.up * (this.transform.parent.localScale.y / 2f) * -1f;
-        // Vector3 pos = this.transform.parent.position + offset; //This is the position
         Vector3 lineStartPoint = this.transform.position;
 
         for (int i = 0; i < numSegments; i++)
@@ -62,12 +59,13 @@ public class FishingLine : MonoBehaviour
 
     private void ApplyConstraint()
     {
-        //Constrant to Mouse
         LineSegment firstSegment = this.lineSegments[0];
-        // Vector3 offset = this.transform.parent.up * (this.transform.parent.localScale.y / 2f) * -1f;
-        // Vector3 pos = this.transform.parent.position + offset; //This is the position
         firstSegment.posNow = this.transform.position;
         this.lineSegments[0] = firstSegment;
+
+        LineSegment endSegment = this.lineSegments[this.lineSegments.Count - 1];
+        endSegment.posNow = this.lure.position;
+        this.lineSegments[this.lineSegments.Count - 1] = endSegment;
 
         for (int i = 0; i < this.numSegments - 1; i++)
         {
@@ -111,10 +109,10 @@ public class FishingLine : MonoBehaviour
         Vector3[] linePositions = new Vector3[this.numSegments];
         for (int i = 0; i < this.numSegments; i++)
         {
-            linePositions[i] = this.lineSegments[i].posNow;
-            
             if (i == this.numSegments - 1) {
-                lure.transform.position = linePositions[i];
+                linePositions[i] = lure.position;
+            } else {
+                linePositions[i] = this.lineSegments[i].posNow;
             }
         }
 
