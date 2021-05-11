@@ -6,8 +6,8 @@ public class FishingLine : MonoBehaviour
 {
     private LineRenderer lineRenderer;
     private List<LineSegment> lineSegments = new List<LineSegment>();
-    public float lineSegLen = 0.25f;
-    public int numSegments = 3;
+    public float lineSegLen = 0.02f;
+    public int numSegments = 30;
     private float lineWidth = 0.01f;
     public Transform lure;
 
@@ -39,7 +39,6 @@ public class FishingLine : MonoBehaviour
     {
         // SIMULATION
         Vector3 forceGravity = new Vector3(0f, -1.5f, 0f);
-
         for (int i = 1; i < this.numSegments; i++)
         {
             LineSegment firstSegment = this.lineSegments[i];
